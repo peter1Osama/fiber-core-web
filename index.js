@@ -1,4 +1,5 @@
 
+var fs = require('fs');
 let mapper = {
   color: "colors",
   borderWidth: "borderWidth",
@@ -4666,9 +4667,16 @@ function flatObjectValues(obj) {
 
 flatObjectValues(input);
 
-var fs = require('fs');
-var jsonData = JSON.stringify(output);
-fs.writeFile("test.txt", jsonData, function(err) {
+
+const tailwindConfig = {
+  theme: {
+    extend: { ...output},
+  },
+  variants: {},
+  plugins: [],
+};
+const configContent = `module.exports = ${JSON.stringify(tailwindConfig, null, 2)};`;
+fs.writeFile("tailwind.config.js", configContent, function(err) {
     if (err) {
         console.log(err);
     }
