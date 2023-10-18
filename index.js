@@ -9,10 +9,10 @@ fs.readFile('./tokens.json', 'utf8', (err, data) => {
 
   const input = JSON.parse(data);
   const output = {};
-  const map = {'color': 'colors', 'sizing': 'size', 'spacing': 'space'};
+  //TODO: add Special Functions to the Mapper
+  const map = {'color': 'colors', 'sizing': 'size', 'spacing': 'space', 'elevation': 'boxShadow'};
 
   Object.keys(input).forEach(key => {
-    
     output[map[key] || key] = {}
   })
   
@@ -22,23 +22,43 @@ fs.readFile('./tokens.json', 'utf8', (err, data) => {
   
   function flatObjectValues(obj) {
     for (const key in obj) {
-      // if (k === 'opacity') return;
-      if (obj[key].value === undefined) {
+      if (key === 'elevation') continue ;
+      if (obj[key].value === undefined ) {
         flatObjectValues(obj[key])
       } else {
         const category = map[obj[key].type] || obj[key].type;
         if(output[category] === undefined) {
           output[category] = {}
         }
-        // console.log(category)
-        // console.log(obj[k])
-        // console.log(output[category])
         output[category][key] = obj[key].value;
       }
     }
   }
   
+  function handleElevationCase (obj, boxShadow = {}) {
+    for (const key in obj) {
+      if (obj[key].value === undefined) {
+        handleElevationCase(obj[key], boxShadow)
+      } else {
+        let singleClassContent = [];
+        if(Array.isArray(obj[key].value)){
+          for( let i=0 ;i< obj[key].value.length; i++){
+            singleClassContent.push(`${obj[key].value[i].x}px ${obj[key].value[i].y}px ${obj[key].value[i].blur}px ${obj[key].value[i].spread}px ${obj[key].value[i].color}`)
+          }
+        }
+        else {
+          singleClassContent.push(`${obj[key].value.x}px ${obj[key].value.y}px ${obj[key].value.blur}px ${obj[key].value.spread}px ${obj[key].value.color}`)
+        }
+        boxShadow[key] = singleClassContent.join(',');
+      }
+    }
+    return boxShadow;
+  }
+
+
   flatObjectValues(input);
+  output[map.elevation] = handleElevationCase(input.elevation);
+
 
   const tailwindConfig = {
     theme: {
@@ -55,7 +75,5 @@ fs.readFile('./tokens.json', 'utf8', (err, data) => {
           console.log(err);
       }
   });
-
-
 });
 

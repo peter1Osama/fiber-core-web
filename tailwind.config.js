@@ -897,7 +897,16 @@ module.exports = {
         "dimension-1500": "120px",
         "dimension-1600": "128px"
       },
-      "elevation": {},
+      "boxShadow": {
+        "elevation-bottom-100": "0px 1px 2px 0px #1b242c1f",
+        "elevation-bottom-200": "0px 2px 2px -1px #1b242c0a,0px 2px 8px -1px #1b242c14",
+        "elevation-bottom-300": "0px 2px 2px -1px #1b242c0a,0px 8px 16px -2px #1b242c1f",
+        "elevation-bottom-400": "0px 2px 2px -1px #1b242c0a,0px 16px 24px -6px #1b242c29",
+        "elevation-top-100": "0px -1px 2px 0px #1b242c1f",
+        "elevation-top-200": "0px -2px 2px -1px #1b242c0a,0px -2px 8px -1px #1b242c14",
+        "elevation-top-300": "0px -2px 2px -1px #1b242c0a,0px -8px 16px -2px #1b242c1f",
+        "elevation-top-400": "0px -2px 2px -1px #1b242c0a,0px -16px 24px -6px #1b242c29"
+      },
       "fontFamily": {},
       "fontSize": {},
       "fontWeight": {},
@@ -917,132 +926,6 @@ module.exports = {
       "Default Theme": {},
       "Light": {},
       "Dark": {},
-      "boxShadow": {
-        "elevation-bottom-100": {
-          "x": 0,
-          "y": 1,
-          "blur": 2,
-          "spread": 0,
-          "color": "#1b242c1f",
-          "type": "dropShadow"
-        },
-        "elevation-bottom-200": [
-          {
-            "x": 0,
-            "y": 2,
-            "blur": 2,
-            "spread": -1,
-            "color": "#1b242c0a",
-            "type": "dropShadow"
-          },
-          {
-            "x": 0,
-            "y": 2,
-            "blur": 8,
-            "spread": -1,
-            "color": "#1b242c14",
-            "type": "dropShadow"
-          }
-        ],
-        "elevation-bottom-300": [
-          {
-            "x": 0,
-            "y": 2,
-            "blur": 2,
-            "spread": -1,
-            "color": "#1b242c0a",
-            "type": "dropShadow"
-          },
-          {
-            "x": 0,
-            "y": 8,
-            "blur": 16,
-            "spread": -2,
-            "color": "#1b242c1f",
-            "type": "dropShadow"
-          }
-        ],
-        "elevation-bottom-400": [
-          {
-            "x": 0,
-            "y": 2,
-            "blur": 2,
-            "spread": -1,
-            "color": "#1b242c0a",
-            "type": "dropShadow"
-          },
-          {
-            "x": 0,
-            "y": 16,
-            "blur": 24,
-            "spread": -6,
-            "color": "#1b242c29",
-            "type": "dropShadow"
-          }
-        ],
-        "elevation-top-100": {
-          "x": 0,
-          "y": -1,
-          "blur": 2,
-          "spread": 0,
-          "color": "#1b242c1f",
-          "type": "dropShadow"
-        },
-        "elevation-top-200": [
-          {
-            "x": 0,
-            "y": -2,
-            "blur": 2,
-            "spread": -1,
-            "color": "#1b242c0a",
-            "type": "dropShadow"
-          },
-          {
-            "x": 0,
-            "y": -2,
-            "blur": 8,
-            "spread": -1,
-            "color": "#1b242c14",
-            "type": "dropShadow"
-          }
-        ],
-        "elevation-top-300": [
-          {
-            "x": 0,
-            "y": -2,
-            "blur": 2,
-            "spread": -1,
-            "color": "#1b242c0a",
-            "type": "dropShadow"
-          },
-          {
-            "x": 0,
-            "y": -8,
-            "blur": 16,
-            "spread": -2,
-            "color": "#1b242c1f",
-            "type": "dropShadow"
-          }
-        ],
-        "elevation-top-400": [
-          {
-            "x": 0,
-            "y": -2,
-            "blur": 2,
-            "spread": -1,
-            "color": "#1b242c0a",
-            "type": "dropShadow"
-          },
-          {
-            "x": 0,
-            "y": -16,
-            "blur": 24,
-            "spread": -6,
-            "color": "#1b242c29",
-            "type": "dropShadow"
-          }
-        ]
-      },
       "fontFamilies": {
         "font-family-sans": "Noto Sans",
         "font-family-serif": "Noto Serif",
